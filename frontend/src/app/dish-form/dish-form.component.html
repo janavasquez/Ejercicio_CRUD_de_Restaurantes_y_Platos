@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      @if(isUpdate){
+        <h1 class="mt-5">Actualizar/Editar restaurante</h1>
+      } @else {
+        <h1 class="mt-5">Crear nuevo restaurante</h1>
+      }
+
+      <form class="mt-5" [formGroup]="dishForm" (ngSubmit)="save()">
+
+        <input type="hidden" formControlName="id">
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="title" formControlName="title"
+          placeholder="">
+          <label for="title">Nombre</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="text"
+          class="form-control" id="description" formControlName="description"
+          placeholder="">
+          <label for="price">Descripción</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="text"
+          class="form-control" id="price" formControlName="price"
+          placeholder="">
+          <label for="price">Precio</label>
+        </div>
+
+        <div class="d-grid gap-2">
+          <button class="btn btn-success" type="submit">Enviar</button>
+          <button class="btn btn-danger" type="button">Cancelar</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+

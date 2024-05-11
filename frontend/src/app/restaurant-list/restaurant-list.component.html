@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <h1 class="mt-5">Listado de restaurantes <i class="bi bi-book"></i></h1>
+
+      <button class="btn btn-primary"
+      routerLink="/restaurant/new">Crear restaurante</button>
+
+      <table class="table table-striped mt-5">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Correo electronico</th>
+            <th scope="col">Pagina web</th>
+            <th scope="col">Nivel de precios</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(restaurant of restaurants; track restaurant.id) {
+          <tr>
+            <td>{{restaurant.id}}</td>
+            <td>{{restaurant.title}}</td>
+            <td>{{restaurant.address}}</td>
+            <td>{{restaurant.phone}}</td>
+            <td>{{restaurant.email}}</td>
+            <td>{{restaurant.webUrl}}</td>
+            <td>{{restaurant.priceLevel}}</td>
+
+            <td>
+              <button class="btn btn-success me-2" [routerLink]="['/restaurant', restaurant.id]">
+                <i class="bi bi-eye"></i>
+                Ver detalle
+              </button>
+              <button class="btn btn-success me-2" [routerLink]="['/restaurant', restaurant.id, 'edit']">
+                <i class="bi bi-pencil"></i>
+                Editar
+              </button>
+
+
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
